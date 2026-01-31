@@ -47,3 +47,7 @@ end_to_end_results.json
 *.dll
 *.exe
 *.obj
+
+# Exceptions (Track these critical files)
+!sbscr/models/complexity_xgboost.json
+!data/models.yaml
