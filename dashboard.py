@@ -58,6 +58,14 @@ st.markdown("""
         border-radius: 5px;
         border-left: 3px solid #3b82f6;
     }
+    .status-badge {
+        background-color: #059669;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: bold;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -68,6 +76,7 @@ def get_router():
 
 try:
     router = get_router()
+    model_count = len(router.registry.models)
 except Exception as e:
     st.error(f"Failed to initialize router: {e}")
     st.stop()
@@ -84,7 +93,15 @@ col_left, col_right = st.columns([1.2, 0.8])
 # --- LEFT PANE: Chat Interface ---
 with col_left:
     st.title("💬 SBSCR Inference Chat")
-    st.caption("Sub-Millisecond Semantic Routing Engine")
+    st.markdown(f"""
+    <div style='margin-top: -15px; margin-bottom: 20px'>
+        <span class='status-badge'>LIVE MODEL REGISTRY</span>
+        <span style='color: #6b7280; font-size: 0.8rem; margin-left: 10px'>Connecting to {model_count} OpenRouter models</span>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # ipv caption("Sub-Millisecond Semantic Routing Engine")
+
     
     # Display Chat History
     for msg in st.session_state.messages:
