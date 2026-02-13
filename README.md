@@ -1,4 +1,4 @@
-# SBSCR Router v6 ⚡
+# SBSCR Router Enterprise ⚡
 
 **Sub-Millisecond LLM Router with LSH-Based Semantic Bucketing**
 
@@ -36,7 +36,7 @@ Try the interactive routing simulation with real-time pipeline visualization!
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        SBSCR v6 Pipeline                            │
+│                        SBSCR Pipeline                               │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │   Query ──▶ [Stage 0: Trivial Filter] ──▶ CHEAP_CHAT (if < 10 chars)│
@@ -79,8 +79,8 @@ Try the interactive routing simulation with real-time pipeline visualization!
 
 ```bash
 # Clone the repository
-git clone https://github.com/alphagangs/sbscr-router-v6.git
-cd sbscr-router-v6
+git clone https://github.com/alphagangs/sbscr-router.git
+cd sbscr-router
 
 # Install dependencies
 pip install -r requirements.txt
@@ -117,14 +117,14 @@ Open [http://localhost:4321](http://localhost:4321)
 ## 🔧 Key Components
 
 ```
-sbscr-router-v6/
+sbscr-router/
 ├── sbscr/
 │   ├── core/
 │   │   ├── lsh.py          # LSH signature generator & bucket router
 │   │   ├── normalizer.py   # Semantic normalizer & trivial detector
 │   │   └── registry.py     # Model registry (loads OpenRouter data)
 │   └── routers/
-│       └── sbscr.py        # Main v6 router implementation
+│       └── sbscr.py        # Main router implementation
 ├── data/
 │   ├── models.yaml         # 346 models from OpenRouter
 │   ├── bucket_map.json     # Calibrated LSH bucket → intent mapping
@@ -132,7 +132,7 @@ sbscr-router-v6/
 ├── scripts/
 │   ├── fetch_openrouter_models.py  # Refresh model registry
 │   ├── calibrate_lsh_buckets.py    # Bucket calibration
-│   └── verify_router_v6.py         # End-to-end benchmarks
+│   └── verify_router.py            # End-to-end benchmarks
 ├── frontend/               # Astro + Vercel frontend
 │   └── src/pages/index.astro
 └── dashboard.py            # Streamlit observability UI
@@ -188,7 +188,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 ## 🔗 Links
 
 - **Live Demo**: [frontend-seven-eta-98.vercel.app](https://frontend-seven-eta-98.vercel.app)
-- **GitHub**: [github.com/alphagangs/sbscr-router-v6](https://github.com/alphagangs/sbscr-router-v6)
+- **GitHub**: [github.com/alphagangs/sbscr-router](https://github.com/alphagangs/sbscr-router)
 - **OpenRouter**: [openrouter.ai](https://openrouter.ai)
 
 ---

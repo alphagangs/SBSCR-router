@@ -2,7 +2,7 @@
 LSH (Locality-Sensitive Hashing) signature generator for semantic bucketing.
 Uses MinHash for efficient similarity estimation.
 
-SBSCR v6: Now includes bucket-to-intent routing for sub-millisecond semantic classification.
+SBSCR Enterprise: Now includes bucket-to-intent routing for sub-millisecond semantic classification.
 """
 
 from typing import List, Set, Dict, Tuple, Optional
@@ -165,7 +165,7 @@ class LSHBucketRouter:
     LSH-based semantic router.
     Maps queries to intent buckets without neural network inference.
     
-    This is Stage 2 of the SBSCR v6 pipeline.
+    This is Stage 2 of the SBSCR Enterprise pipeline.
     Target latency: ~0.3ms
     """
     

@@ -12,7 +12,7 @@ from sbscr.routers.sbscr import SBSCRRouter
 
 # Page Config
 st.set_page_config(
-    page_title="SBSCR Inference Engine",
+    page_title="SBSCR Enterprise",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
