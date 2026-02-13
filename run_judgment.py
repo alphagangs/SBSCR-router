@@ -169,7 +169,7 @@ def run_judgment():
     
     # Interpretation
     if avg_total >= 8:
-        print("🏆 EXCELLENT - Production ready!")
+        print("🏆 EXCELLENT - Ready!")
     elif avg_total >= 6:
         print("✅ GOOD - Suitable for most use cases")
     elif avg_total >= 4:

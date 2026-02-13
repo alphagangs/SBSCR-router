@@ -1,6 +1,6 @@
-# serve_enterprise.py - Full Multi-Provider Server (12 Free Models)
+# serve.py - Full Multi-Provider Server (12 Free Models)
 """
-Enterprise Router with Multi-Provider Infrastructure
+API Router with Multi-Provider Infrastructure
 - Groq: 5 models (free, fast)
 - Hugging Face: 5 models (free)
 - Google: 2 models (free)
@@ -20,10 +20,10 @@ from sbscr.providers.groq_provider import GroqProvider
 from sbscr.providers.huggingface_provider import HuggingFaceProvider
 from sbscr.providers.google_provider import GoogleProvider
 
-app = FastAPI(title="SBSCR Enterprise Router (Multi-Provider)")
+app = FastAPI(title="SBSCR Router API")
 
 # Initialize Router
-print("🚀 Initializing Enterprise Router v5...")
+print("🚀 Initializing Router API...")
 router = SBSCRRouter()
 
 # Initialize Provider Registry
@@ -82,7 +82,7 @@ async def chat_completions(request: ChatCompletionRequest):
     
     query = request.messages[-1].content
     
-    # Step 1: Route using Enterprise Router
+    # Step 1: Route using Router
     start = time.time()
     selected_model = router.route(query)
     routing_latency = (time.time() - start) * 1000
@@ -104,7 +104,7 @@ async def chat_completions(request: ChatCompletionRequest):
         inference_latency = (time.time() - inference_start) * 1000
         
         return {
-            "id": f"chatcmpl-enterprise-{int(time.time())}",
+            "id": f"chatcmpl-{int(time.time())}",
             "object": "chat.completion",
             "created": int(time.time()),
             "model": selected_model,
@@ -185,7 +185,7 @@ async def health():
 
 if __name__ == "__main__":
     print("\n" + "="*60)
-    print("🏢 SBSCR ENTERPRISE ROUTER - 100% FREE TIER")
+    print("🏢 SBSCR ROUTER API - ONLINE")
     print("="*60)
     print("\n📊 Model Output Mapping:")
     print("   - Claude Sonnet  -> Groq: Llama 3.1 70B")

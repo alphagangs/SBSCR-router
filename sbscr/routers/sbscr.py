@@ -1,5 +1,5 @@
 """
-SBSCR Enterprise - Tiered LLM Router (Sub-Millisecond Design)
+SBSCR - Tiered LLM Router (Sub-Millisecond Design)
 
 This router implements the original SBSCR vision:
 - No neural network passes (removed DistilBART dependency)
@@ -27,7 +27,7 @@ from sbscr.core.normalizer import SemanticNormalizer, TrivialQueryDetector
 
 class SBSCRRouter:
     """
-    SBSCR Enterprise - Tiered Sub-Millisecond Router.
+    SBSCR - Tiered Sub-Millisecond Router.
     
     Designed to match the original SBSCR vision:
     - No heavy neural network passes
@@ -41,7 +41,7 @@ class SBSCRRouter:
                  synonyms_path: str = "data/synonyms.yaml",
                  bucket_map_path: str = "data/bucket_map.json"):
         
-        print("🚀 Initializing SBSCR Enterprise (Sub-Millisecond Tiered Router)...")
+        print("🚀 Initializing SBSCR (Sub-Millisecond Tiered Router)...")
         start = time.time()
         
         # 1. Load Registry
@@ -288,7 +288,7 @@ class SBSCRRouter:
 if __name__ == "__main__":
     # Latency benchmark
     print("\n" + "="*60)
-    print("SBSCR Enterprise - Sub-Millisecond Router Test")
+    print("SBSCR - Sub-Millisecond Router Test")
     print("="*60)
     
     router = SBSCRRouter()

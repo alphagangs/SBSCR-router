@@ -1,8 +1,8 @@
-# SBSCR Router Enterprise ⚡
+# SBSCR Router ⚡
 
 **Sub-Millisecond LLM Router with LSH-Based Semantic Bucketing**
 
-Route queries to the optimal LLM in **<1ms** using Locality-Sensitive Hashing. Connected to **346+ production models** via OpenRouter.
+Route queries to the optimal LLM in **<1ms** using Locality-Sensitive Hashing. Connected to **346+ models** via OpenRouter.
 
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Astro](https://img.shields.io/badge/Astro-Frontend-FF5D01?logo=astro&logoColor=white)](https://astro.build)
@@ -28,7 +28,7 @@ Try the interactive routing simulation with real-time pipeline visualization!
 | **🧠 LSH Semantic Bucketing** | O(1) query classification using locality-sensitive hashing |
 | **🌐 OpenRouter Integration** | Live access to 346+ models (GPT-4o, Claude 3.5, Llama 3.1, etc.) |
 | **📊 Glass-Box Observability** | Full visibility into every routing decision |
-| **💰 Cost Optimization** | Routes simple queries to cheap models, saves ~$30/1M tokens |
+| **💰 Cost Optimization** | Routes simple queries to cheap models |
 
 ---
 
@@ -194,5 +194,5 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
 <p align="center">
-  Built with ❤️ for Academic Research
+  Built with ❤️
 </p>

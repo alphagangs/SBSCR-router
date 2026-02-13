@@ -10,7 +10,7 @@ from sbscr.core.intent import IntentClassifier
 
 class SBSCRRouter:
     """
-    Enterprise Structural Router (v5).
+    Legacy Structural Router.
     Uses XGBoost complexity scoring + Dynamic Registry for model selection.
     Now with Semantic Intent Layer (Zero-Shot).
     """
@@ -18,7 +18,7 @@ class SBSCRRouter:
                  registry_path: str = "data/models.yaml",
                  model_path: str = "sbscr/models/complexity_xgboost.json"):
         
-        print("🚀 Initializing Enterprise Router v5 (Hybrid Semantic)...")
+        print("🚀 Initializing Legacy Router v5 (Hybrid Semantic)...")
         
         # 1. Load Registry
         self.registry = ModelRegistry(registry_path)

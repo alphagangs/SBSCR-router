@@ -10,7 +10,7 @@ from sbscr.routers.sbscr import SBSCRRouter
 
 def verify_system():
     print("="*60)
-    print("🚀 SBSCR Enterprise End-to-End System Verification")
+    print("🚀 SBSCR End-to-End System Verification")
     print("="*60)
 
     # 1. Initialization
@@ -53,7 +53,7 @@ def verify_system():
         duration_ms = (time.perf_counter() - start_t) * 1000
         latencies.append(duration_ms)
         
-        intent = result  # In Enterprise edition, route() returns the provider_id string directly
+        intent = result  # In this version, route() returns the provider_id string directly
         
         # Map model back to intent for checking
         mapped_intent = "unknown"
