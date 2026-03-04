@@ -3,7 +3,7 @@ Main benchmark comparison script.
 Runs all routers on all datasets and generates comparison report.
 """
 
-from sbscr.routers import SBSCRRouter, RandomRouter, KeywordRouter, SemanticRouter #, HybridRouter
+from sbscr.routers import SBSCRRouter, RandomRouter, KeywordRouter, SemanticRouter
 from sbscr.evaluation import BenchmarkRunner
 import json
 
@@ -16,7 +16,6 @@ def main():
     # Initialize all routers
     routers = {
         'SBSCR': SBSCRRouter(registry_path="data/models.yaml", model_path="sbscr/models/complexity_xgboost.json"),
-        # 'Hybrid': HybridRouter(),
         'Random': RandomRouter(seed=42),
         'Keyword': KeywordRouter(),
         'Semantic': SemanticRouter(),
