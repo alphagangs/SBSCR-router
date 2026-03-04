@@ -67,3 +67,28 @@ The SBSCR framework was benchmarked against traditional DistilBART-based neural 
 ### Discriminative Power (Complexity vs. Semantic)
 - **Validation of Structural Signatures:** While standard semantic routers group all programming queries into an identical "Coding" bucket, SBSCR successfully differentiated tasks internally. 
 - *Example:* A trivial scripting query (e.g., "Write a hello world in Python") yielded an XGBoost complexity score of ~0.12 (Tier 3 Fast Code Model). Alternatively, a structurally deep architectural query within the same semantic 'python' domain yielded a complexity score of ~0.88 (Tier 1 SOTA Model). This validates the hypothesis that structural syntax metadata effectively proxies computational complexity prior to inference.
+
+---
+
+## 7. Codebase Architecture & AI Context (Repo Guide)
+> **Note to AI Paper Generator:** This section provides explicit context regarding the structure of the GitHub repository provided to you. Understanding this structure is critical for accurately describing the implementation details in the research paper.
+
+The project is structured into three distinct domains: **Core Engine**, **Baselines & Evaluation**, and **Deployment**.
+
+### 1. Core Engine (`sbscr/core/` and `sbscr/routers/sbscr.py`)
+This is the heart of the Signature-Based Structural Complexity Router.
+- `sbscr/core/lsh.py`: Implements the Stage 2 Semantic Bucketing (O(1) Locality-Sensitive Hashing).
+- `sbscr/core/metadata.py`: Implements the Stage 3 Structural Complexity Extractor (AST proxy features, token ratios).
+- `sbscr/core/registry.py`: The Dynamic Resolution mapping for OpenRouter models.
+- `sbscr/routers/sbscr.py`: The master waterfall pipeline coordinating Stages 0 through 3.
+
+### 2. Baselines & Evaluation (`sbscr/routers/`, `sbscr/evaluation/`, `scripts/`)
+> **Crucial Context:** Several files in the repository appear counter-intuitive to the core "SBSCR" philosophy (such as `semantic.py` or `keyword.py`). **These are strictly kept intact as evaluation baselines.**
+- **`sbscr/routers/semantic.py`:** A traditional Neural/Embedding router (DistilBART/SentenceTransformers). Kept in the repo exclusively to execute the latency/accuracy benchmarks proving SBSCR is 7,000x faster.
+- **`sbscr/routers/keyword.py`:** A naive keyword matcher baseline.
+- **`scripts/run_benchmarks.py`:** The script that pits SBSCR against the baselines on empirical datasets.
+- **`scripts/train_router.py`:** While SBSCR claims "Zero-Shot" adaptability for *models*, its Stage 3 *Complexity Score* relies on a lightweight XGBoost model. This script contains the logic where our domain-expert heuristics pseudo-label historical data to train the ultra-fast XGBoost regression tree representing structural syntactic complexity.
+
+### 3. Deployment Frontend (`frontend/`, `dashboard.py`)
+- **`frontend/src/pages/index.astro`**: A deployed highly reactive web interface built in Astro that visually simulates the 4-Stage pipeline latency step-by-step and demonstrates the Tier Cluster (e.g., Tier 1 SOTA vs. Tier 3 Fast Code) assignment in real-time.
+- **`dashboard.py`**: A local Streamlit interface providing deeper "Glass-Box" observability into individual hash buckets and intent phase transitions.
