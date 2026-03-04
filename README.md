@@ -1,8 +1,8 @@
-# SBSCR Router ⚡
+# Signature-Based Structural Complexity Routing (SBSCR) ⚡
 
-**Sub-Millisecond LLM Router with LSH-Based Semantic Bucketing**
+**Sub-Millisecond LLM Routing via Locality-Sensitive Hashing and Structural Metadata**
 
-Route queries to the optimal LLM in **<1ms** using Locality-Sensitive Hashing. Connected to **346+ models** via OpenRouter.
+A lightweight framework that replaces dense embeddings with Locality-Sensitive Hashing (LSH) signatures combined with structural metadata extraction to solve the Decision-Cost Paradox in LLM routing. Routes queries to the optimal LLM in **<1ms**.
 
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Astro](https://img.shields.io/badge/Astro-Frontend-FF5D01?logo=astro&logoColor=white)](https://astro.build)
@@ -28,7 +28,6 @@ Try the interactive routing simulation with real-time pipeline visualization!
 | **🧠 LSH Semantic Bucketing** | O(1) query classification using locality-sensitive hashing |
 | **🌐 OpenRouter Integration** | Live access to 346+ models (GPT-4o, Claude 3.5, Llama 3.1, etc.) |
 | **📊 Glass-Box Observability** | Full visibility into every routing decision |
-| **💰 Cost Optimization** | Routes simple queries to cheap models |
 
 ---
 
@@ -155,19 +154,7 @@ This updates `data/models.yaml` with:
 - Context window sizes
 - Auto-clustered into: **SOTA**, **High Perf**, **Fast Code**, **Cheap Chat**
 
----
 
-## 📈 Cost Savings
-
-| Query Type | Without Router | With SBSCR | Savings |
-|------------|----------------|------------|---------|
-| "Hello" | GPT-4o ($5/1M) | Llama-3-8B ($0.05/1M) | **99%** |
-| Code task | GPT-4o ($5/1M) | DeepSeek Coder ($0.14/1M) | **97%** |
-| Complex reasoning | GPT-4o ($5/1M) | GPT-4o ($5/1M) | 0% |
-
-**Average savings: ~$29.90 per 1M tokens** (assuming 60% simple, 30% medium, 10% complex distribution)
-
----
 
 ## 🤝 Contributing
 

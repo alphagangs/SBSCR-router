@@ -142,12 +142,8 @@ with col_right:
         # 1. Top Level Metrics
         cols = st.columns(3)
         
-        # Calculate Costs (Mock)
-        # GPT-4: $30/1M, Llama-70B: $0.9/1M, Phi-3: $0.1/1M
-        gpt4_cost = 30.0
-        model_name = info["final_model"]
-        actual_cost = 30.0 if "gpt-4" in model_name else (0.9 if "llama" in model_name or "claude" in model_name else 0.1)
-        savings_per_1m = gpt4_cost - actual_cost
+        # Determine Intent
+        intent = info['stages'].get('stage2_lsh', {}).get('intent', info['stages'].get('stage1_fast_path', {}).get('intent', 'general'))
         
         with cols[0]:
             st.markdown(f"""
@@ -167,11 +163,10 @@ with col_right:
             </div>
             """, unsafe_allow_html=True)
             
-        with cols[2]:
              st.markdown(f"""
             <div class="metric-box">
-                <div class="metric-label">Savings / 1M</div>
-                <div class="metric-value" style="color: #34d399">${savings_per_1m:.2f}</div>
+                <div class="metric-label">Intent Phase</div>
+                <div class="metric-value" style="color: #34d399">{intent.upper()}</div>
             </div>
             """, unsafe_allow_html=True)
 
